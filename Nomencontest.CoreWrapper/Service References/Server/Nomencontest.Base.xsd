@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Nomencontest.Base" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Nomencontest.Base" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Nomencontest.Base.ViewModels" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Nomencontest.Base.Models" />
+  <xs:complexType name="DataTransporter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="Timestamp" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DataTransporter" nillable="true" type="tns:DataTransporter" />
+  <xs:complexType name="SetupTransporter">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DataTransporter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Settings" nillable="true" type="tns:Settings" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SetupTransporter" nillable="true" type="tns:SetupTransporter" />
+  <xs:complexType name="Settings">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Nomencontest.Base.ViewModels" base="q1:PropertyClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AnswerValue" type="xs:int" />
+          <xs:element minOccurs="0" name="FaceOffGoal" type="xs:int" />
+          <xs:element minOccurs="0" name="GamePort" type="xs:int" />
+          <xs:element minOccurs="0" name="MaxPlayers" type="xs:int" />
+          <xs:element minOccurs="0" name="RemotePort" type="xs:int" />
+          <xs:element minOccurs="0" name="RoundCount" type="xs:int" />
+          <xs:element minOccurs="0" name="RoundLength" type="xs:int" />
+          <xs:element minOccurs="0" name="ServerIPAddress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UseShuffledValues" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Settings" nillable="true" type="tns:Settings" />
+  <xs:complexType name="GameStatus">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DataTransporter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CurrentCategory" nillable="true" type="tns:StringWithIDTransporter" />
+          <xs:element minOccurs="0" name="CurrentDisplayName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CurrentItemScoreValue" type="xs:int" />
+          <xs:element minOccurs="0" name="CurrentName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CurrentPlayerIndex" type="xs:int" />
+          <xs:element minOccurs="0" name="CurrentRound" type="xs:int" />
+          <xs:element minOccurs="0" name="IsFinalRound" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsFinalRoundPlayerGuessing" type="xs:boolean" />
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Nomencontest.Base.ViewModels" minOccurs="0" name="Players" nillable="true" type="q2:ArrayOfPlayerVM" />
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Nomencontest.Base.Models" minOccurs="0" name="RoundPhase" type="q3:RoundPhase" />
+          <xs:element minOccurs="0" name="SelectableCategories" nillable="true" type="tns:ArrayOfStringWithIDTransporter" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GameStatus" nillable="true" type="tns:GameStatus" />
+  <xs:complexType name="StringWithIDTransporter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StringWithIDTransporter" nillable="true" type="tns:StringWithIDTransporter" />
+  <xs:complexType name="ArrayOfStringWithIDTransporter">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StringWithIDTransporter" nillable="true" type="tns:StringWithIDTransporter" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStringWithIDTransporter" nillable="true" type="tns:ArrayOfStringWithIDTransporter" />
+  <xs:complexType name="ItemDatabaseTransporter">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DataTransporter">
+        <xs:sequence>
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Nomencontest.Base.Models" minOccurs="0" name="ItemDatabase" nillable="true" type="q4:ItemDatabase" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ItemDatabaseTransporter" nillable="true" type="tns:ItemDatabaseTransporter" />
+  <xs:complexType name="ClockTransporter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CurrentTime" type="xs:int" />
+      <xs:element minOccurs="0" name="StartTime" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClockTransporter" nillable="true" type="tns:ClockTransporter" />
+</xs:schema>

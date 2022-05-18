@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Nomencontest.Base.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Nomencontest.Base.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="PlayerModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Points" type="xs:double" />
+      <xs:element minOccurs="0" name="_id" type="xs:unsignedInt" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PlayerModel" nillable="true" type="tns:PlayerModel" />
+  <xs:simpleType name="RoundPhase">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="GameNotStarted" />
+      <xs:enumeration value="NotStarted" />
+      <xs:enumeration value="ShowCategories" />
+      <xs:enumeration value="IsReady" />
+      <xs:enumeration value="IsRunning" />
+      <xs:enumeration value="IsOver" />
+      <xs:enumeration value="GameDone" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="RoundPhase" nillable="true" type="tns:RoundPhase" />
+  <xs:complexType name="ItemDatabase">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ItemEntries" nillable="true" type="tns:ArrayOfItemEntry" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ItemDatabase" nillable="true" type="tns:ItemDatabase" />
+  <xs:complexType name="ArrayOfItemEntry">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ItemEntry" nillable="true" type="tns:ItemEntry" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfItemEntry" nillable="true" type="tns:ArrayOfItemEntry" />
+  <xs:complexType name="ItemEntry">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="_alreadyUsed" type="xs:boolean" />
+      <xs:element minOccurs="0" name="_categoryModel" nillable="true" type="tns:CategoryModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ItemEntry" nillable="true" type="tns:ItemEntry" />
+  <xs:complexType name="CategoryModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Category" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="IsFinal" type="xs:boolean" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Items" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element minOccurs="0" name="_id" type="xs:unsignedInt" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CategoryModel" nillable="true" type="tns:CategoryModel" />
+  <xs:simpleType name="SoundCue">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="StartTheme" />
+      <xs:enumeration value="StopTheme" />
+      <xs:enumeration value="RoundBGM" />
+      <xs:enumeration value="RightGuess" />
+      <xs:enumeration value="WrongGuess" />
+      <xs:enumeration value="EndRound" />
+      <xs:enumeration value="PickCategory" />
+      <xs:enumeration value="Intro" />
+      <xs:enumeration value="Outro" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SoundCue" nillable="true" type="tns:SoundCue" />
+</xs:schema>

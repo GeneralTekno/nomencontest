@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nomencontest.Core.Host", "Nomencontest.CoreHost\Nomencontest.Core.Host.csproj", "{EFE69E40-827E-43F7-B38B-8A13EBB1F075}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nomencontest.Base", "Nomencontest.Base\Nomencontest.Base.csproj", "{607CE67A-4784-42B0-AE7B-AAF01F03611D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nomencontest.Core.Wrapper", "Nomencontest.CoreWrapper\Nomencontest.Core.Wrapper.csproj", "{ECF4E998-2FE9-4FEA-A9FB-5B76D89DDEC7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B99F508C-8C70-47EC-981A-43BF3F79CFB6} = {B99F508C-8C70-47EC-981A-43BF3F79CFB6}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nomencontest.Clients.Admin", "Nomencontest.AdminClient\Nomencontest.Clients.Admin.csproj", "{F56236C6-F436-49AD-AA33-6E98BAB43C71}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nomencontest.Clients.UI", "Nomencontest.UIClient\Nomencontest.Clients.UI.csproj", "{79CE0E89-D6E6-4449-ACCC-36AE0337F8A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nomencontest.Core", "Nomencontest.Core\Nomencontest.Core.csproj", "{B99F508C-8C70-47EC-981A-43BF3F79CFB6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EFE69E40-827E-43F7-B38B-8A13EBB1F075}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFE69E40-827E-43F7-B38B-8A13EBB1F075}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFE69E40-827E-43F7-B38B-8A13EBB1F075}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFE69E40-827E-43F7-B38B-8A13EBB1F075}.Release|Any CPU.Build.0 = Release|Any CPU
+		{607CE67A-4784-42B0-AE7B-AAF01F03611D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{607CE67A-4784-42B0-AE7B-AAF01F03611D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{607CE67A-4784-42B0-AE7B-AAF01F03611D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{607CE67A-4784-42B0-AE7B-AAF01F03611D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECF4E998-2FE9-4FEA-A9FB-5B76D89DDEC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECF4E998-2FE9-4FEA-A9FB-5B76D89DDEC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECF4E998-2FE9-4FEA-A9FB-5B76D89DDEC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECF4E998-2FE9-4FEA-A9FB-5B76D89DDEC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F56236C6-F436-49AD-AA33-6E98BAB43C71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F56236C6-F436-49AD-AA33-6E98BAB43C71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F56236C6-F436-49AD-AA33-6E98BAB43C71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F56236C6-F436-49AD-AA33-6E98BAB43C71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79CE0E89-D6E6-4449-ACCC-36AE0337F8A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79CE0E89-D6E6-4449-ACCC-36AE0337F8A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79CE0E89-D6E6-4449-ACCC-36AE0337F8A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79CE0E89-D6E6-4449-ACCC-36AE0337F8A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B99F508C-8C70-47EC-981A-43BF3F79CFB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B99F508C-8C70-47EC-981A-43BF3F79CFB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B99F508C-8C70-47EC-981A-43BF3F79CFB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B99F508C-8C70-47EC-981A-43BF3F79CFB6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

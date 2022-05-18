@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="cf9ccc60-e752-42e4-a2b9-8513acc01e36" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:9999/Nomencontest/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="145a8909-0121-4ff4-a443-f497f2152c8e" SourceId="1" SourceUrl="http://localhost:9999/Nomencontest/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="248c434e-d140-4c61-a478-bbb73bd8e911" SourceId="1" SourceUrl="http://localhost:9999/Nomencontest/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="f90ac9c4-94c6-4493-aa83-cd6a3d305bab" SourceId="1" SourceUrl="http://localhost:9999/Nomencontest/mex" />
+    <MetadataFile FileName="Nomencontest.Base.xsd" MetadataType="Schema" ID="d2fb88f8-9cbc-4f17-84a4-753cb193b853" SourceId="1" SourceUrl="http://localhost:9999/Nomencontest/mex" />
+    <MetadataFile FileName="Nomencontest.Base.ViewModels.xsd" MetadataType="Schema" ID="c2362ce4-de3c-4fb2-ae88-9fa537d91adc" SourceId="1" SourceUrl="http://localhost:9999/Nomencontest/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="b8177567-e399-42d5-87f8-eaf71dce0f84" SourceId="1" SourceUrl="http://localhost:9999/Nomencontest/mex" />
+    <MetadataFile FileName="Nomencontest.Base.Models.xsd" MetadataType="Schema" ID="ac5e4933-e473-45a8-87ed-662bebeda6b1" SourceId="1" SourceUrl="http://localhost:9999/Nomencontest/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

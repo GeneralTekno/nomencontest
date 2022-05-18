@@ -1,0 +1,600 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Core" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetHttpBinding_ICore_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Nomencontest.Base" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Nomencontest.Base.ViewModels" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Nomencontest.Base.Models" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ICore_RegisterAdministrator_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterAdministrator" />
+  </wsdl:message>
+  <wsdl:message name="ICore_RegisterAdministrator_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterAdministratorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICore_UnregisterAdministrator_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnregisterAdministrator" />
+  </wsdl:message>
+  <wsdl:message name="ICore_UnregisterAdministrator_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnregisterAdministratorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICore_RegisterPlayer_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterPlayer" />
+  </wsdl:message>
+  <wsdl:message name="ICore_RegisterPlayer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterPlayerResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICore_UnregisterPlayer_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnregisterPlayer" />
+  </wsdl:message>
+  <wsdl:message name="ICore_UnregisterPlayer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnregisterPlayerResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICore_RegisterMainGUI_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterMainGUI" />
+  </wsdl:message>
+  <wsdl:message name="ICore_RegisterMainGUI_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterMainGUIResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICore_UnregisterMainGUI_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnregisterMainGUI" />
+  </wsdl:message>
+  <wsdl:message name="ICore_UnregisterMainGUI_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnregisterMainGUIResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICore_RegisterObserver_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterObserver" />
+  </wsdl:message>
+  <wsdl:message name="ICore_RegisterObserver_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterObserverResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICore_UnregisterObserver_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnregisterObserver" />
+  </wsdl:message>
+  <wsdl:message name="ICore_UnregisterObserver_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnregisterObserverResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICore_GetGameData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGameData" />
+  </wsdl:message>
+  <wsdl:message name="ICore_SetSettings_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetSettings" />
+  </wsdl:message>
+  <wsdl:message name="ICore_AddItemDatabase_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddItemDatabase" />
+  </wsdl:message>
+  <wsdl:message name="ICore_ClearItemDatabase_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClearItemDatabase" />
+  </wsdl:message>
+  <wsdl:message name="ICore_RemoveItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveItem" />
+  </wsdl:message>
+  <wsdl:message name="ICore_GetItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetItems" />
+  </wsdl:message>
+  <wsdl:message name="ICore_ShuffleCategoryItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:ShuffleCategoryItems" />
+  </wsdl:message>
+  <wsdl:message name="ICore_EnableShuffle_InputMessage">
+    <wsdl:part name="parameters" element="tns:EnableShuffle" />
+  </wsdl:message>
+  <wsdl:message name="ICore_SetCurrentPlayer_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetCurrentPlayer" />
+  </wsdl:message>
+  <wsdl:message name="ICore_ResetRound_InputMessage">
+    <wsdl:part name="parameters" element="tns:ResetRound" />
+  </wsdl:message>
+  <wsdl:message name="ICore_ShowRoundCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:ShowRoundCategories" />
+  </wsdl:message>
+  <wsdl:message name="ICore_SelectRoundCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectRoundCategory" />
+  </wsdl:message>
+  <wsdl:message name="ICore_StartRound_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartRound" />
+  </wsdl:message>
+  <wsdl:message name="ICore_GuessItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:GuessItem" />
+  </wsdl:message>
+  <wsdl:message name="ICore_OverridePlayerScores_InputMessage">
+    <wsdl:part name="parameters" element="tns:OverridePlayerScores" />
+  </wsdl:message>
+  <wsdl:message name="ICore_FlipRandomCharacter_InputMessage">
+    <wsdl:part name="parameters" element="tns:FlipRandomCharacter" />
+  </wsdl:message>
+  <wsdl:message name="ICore_EndRound_InputMessage">
+    <wsdl:part name="parameters" element="tns:EndRound" />
+  </wsdl:message>
+  <wsdl:message name="ICore_NextRound_InputMessage">
+    <wsdl:part name="parameters" element="tns:NextRound" />
+  </wsdl:message>
+  <wsdl:message name="ICore_FinalRoundToggleNameVisibility_InputMessage">
+    <wsdl:part name="parameters" element="tns:FinalRoundToggleNameVisibility" />
+  </wsdl:message>
+  <wsdl:message name="ICore_FinalRoundPlayerGuesses_InputMessage">
+    <wsdl:part name="parameters" element="tns:FinalRoundPlayerGuesses" />
+  </wsdl:message>
+  <wsdl:message name="ICore_FinalRoundPlayerGuessesDirect_InputMessage">
+    <wsdl:part name="parameters" element="tns:FinalRoundPlayerGuessesDirect" />
+  </wsdl:message>
+  <wsdl:message name="ICore_StartGame_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartGame" />
+  </wsdl:message>
+  <wsdl:message name="ICore_EndGame_InputMessage">
+    <wsdl:part name="parameters" element="tns:EndGame" />
+  </wsdl:message>
+  <wsdl:message name="ICore_Ping_InputMessage">
+    <wsdl:part name="parameters" element="tns:Ping" />
+  </wsdl:message>
+  <wsdl:message name="ICore_Ping_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PingResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICore_PlayMusic_InputMessage">
+    <wsdl:part name="parameters" element="tns:PlayMusic" />
+  </wsdl:message>
+  <wsdl:message name="ICore_GetSettings_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSettings" />
+  </wsdl:message>
+  <wsdl:message name="ICore_GetSettings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICore_OnStatusUpdate_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OnStatusUpdate" />
+  </wsdl:message>
+  <wsdl:message name="ICore_OnSettingsUpdate_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OnSettingsUpdate" />
+  </wsdl:message>
+  <wsdl:message name="ICore_OnItemsUpdate_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OnItemsUpdate" />
+  </wsdl:message>
+  <wsdl:message name="ICore_OnGameSetup_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OnGameSetup" />
+  </wsdl:message>
+  <wsdl:message name="ICore_OnClockUpdate_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OnClockUpdate" />
+  </wsdl:message>
+  <wsdl:message name="ICore_OnPlayMusic_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OnPlayMusic" />
+  </wsdl:message>
+  <wsdl:message name="ICore_OnAudioCue_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OnAudioCue" />
+  </wsdl:message>
+  <wsdl:portType name="ICore">
+    <wsdl:operation name="RegisterAdministrator">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICore/RegisterAdministrator" message="tns:ICore_RegisterAdministrator_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICore/RegisterAdministratorResponse" message="tns:ICore_RegisterAdministrator_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnregisterAdministrator">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICore/UnregisterAdministrator" message="tns:ICore_UnregisterAdministrator_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICore/UnregisterAdministratorResponse" message="tns:ICore_UnregisterAdministrator_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterPlayer">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICore/RegisterPlayer" message="tns:ICore_RegisterPlayer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICore/RegisterPlayerResponse" message="tns:ICore_RegisterPlayer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnregisterPlayer">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICore/UnregisterPlayer" message="tns:ICore_UnregisterPlayer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICore/UnregisterPlayerResponse" message="tns:ICore_UnregisterPlayer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterMainGUI">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICore/RegisterMainGUI" message="tns:ICore_RegisterMainGUI_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICore/RegisterMainGUIResponse" message="tns:ICore_RegisterMainGUI_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnregisterMainGUI">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICore/UnregisterMainGUI" message="tns:ICore_UnregisterMainGUI_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICore/UnregisterMainGUIResponse" message="tns:ICore_UnregisterMainGUI_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterObserver">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICore/RegisterObserver" message="tns:ICore_RegisterObserver_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICore/RegisterObserverResponse" message="tns:ICore_RegisterObserver_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnregisterObserver">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICore/UnregisterObserver" message="tns:ICore_UnregisterObserver_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICore/UnregisterObserverResponse" message="tns:ICore_UnregisterObserver_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGameData">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICore/GetGameData" message="tns:ICore_GetGameData_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetSettings">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICore/SetSettings" message="tns:ICore_SetSettings_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddItemDatabase">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICore/AddItemDatabase" message="tns:ICore_AddItemDatabase_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ClearItemDatabase">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICore/ClearItemDatabase" message="tns:ICore_ClearItemDatabase_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICore/RemoveItem" message="tns:ICore_RemoveItem_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICore/GetItems" message="tns:ICore_GetItems_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ShuffleCategoryItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICore/ShuffleCategoryItems" message="tns:ICore_ShuffleCategoryItems_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EnableShuffle">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICore/EnableShuffle" message="tns:ICore_EnableShuffle_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetCurrentPlayer">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICore/SetCurrentPlayer" message="tns:ICore_SetCurrentPlayer_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ResetRound">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICore/ResetRound" message="tns:ICore_ResetRound_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ShowRoundCategories">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICore/ShowRoundCategories" message="tns:ICore_ShowRoundCategories_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectRoundCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICore/SelectRoundCategory" message="tns:ICore_SelectRoundCategory_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartRound">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICore/StartRound" message="tns:ICore_StartRound_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GuessItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICore/GuessItem" message="tns:ICore_GuessItem_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OverridePlayerScores">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICore/OverridePlayerScores" message="tns:ICore_OverridePlayerScores_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FlipRandomCharacter">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICore/FlipRandomCharacter" message="tns:ICore_FlipRandomCharacter_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EndRound">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICore/EndRound" message="tns:ICore_EndRound_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NextRound">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICore/NextRound" message="tns:ICore_NextRound_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FinalRoundToggleNameVisibility">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICore/FinalRoundToggleNameVisibility" message="tns:ICore_FinalRoundToggleNameVisibility_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FinalRoundPlayerGuesses">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICore/FinalRoundPlayerGuesses" message="tns:ICore_FinalRoundPlayerGuesses_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FinalRoundPlayerGuessesDirect">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICore/FinalRoundPlayerGuessesDirect" message="tns:ICore_FinalRoundPlayerGuessesDirect_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartGame">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICore/StartGame" message="tns:ICore_StartGame_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EndGame">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICore/EndGame" message="tns:ICore_EndGame_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICore/Ping" message="tns:ICore_Ping_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICore/PingResponse" message="tns:ICore_Ping_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayMusic">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICore/PlayMusic" message="tns:ICore_PlayMusic_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSettings">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICore/GetSettings" message="tns:ICore_GetSettings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICore/GetSettingsResponse" message="tns:ICore_GetSettings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnStatusUpdate">
+      <wsdl:output wsaw:Action="http://tempuri.org/ICore/OnStatusUpdate" message="tns:ICore_OnStatusUpdate_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnSettingsUpdate">
+      <wsdl:output wsaw:Action="http://tempuri.org/ICore/OnSettingsUpdate" message="tns:ICore_OnSettingsUpdate_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnItemsUpdate">
+      <wsdl:output wsaw:Action="http://tempuri.org/ICore/OnItemsUpdate" message="tns:ICore_OnItemsUpdate_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnGameSetup">
+      <wsdl:output wsaw:Action="http://tempuri.org/ICore/OnGameSetup" message="tns:ICore_OnGameSetup_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnClockUpdate">
+      <wsdl:output wsaw:Action="http://tempuri.org/ICore/OnClockUpdate" message="tns:ICore_OnClockUpdate_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnPlayMusic">
+      <wsdl:output wsaw:Action="http://tempuri.org/ICore/OnPlayMusic" message="tns:ICore_OnPlayMusic_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnAudioCue">
+      <wsdl:output wsaw:Action="http://tempuri.org/ICore/OnAudioCue" message="tns:ICore_OnAudioCue_OutputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetHttpBinding_ICore" type="tns:ICore">
+    <wsp:PolicyReference URI="#NetHttpBinding_ICore_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/websocket" />
+    <wsdl:operation name="RegisterAdministrator">
+      <soap12:operation soapAction="http://tempuri.org/ICore/RegisterAdministrator" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnregisterAdministrator">
+      <soap12:operation soapAction="http://tempuri.org/ICore/UnregisterAdministrator" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterPlayer">
+      <soap12:operation soapAction="http://tempuri.org/ICore/RegisterPlayer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnregisterPlayer">
+      <soap12:operation soapAction="http://tempuri.org/ICore/UnregisterPlayer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterMainGUI">
+      <soap12:operation soapAction="http://tempuri.org/ICore/RegisterMainGUI" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnregisterMainGUI">
+      <soap12:operation soapAction="http://tempuri.org/ICore/UnregisterMainGUI" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterObserver">
+      <soap12:operation soapAction="http://tempuri.org/ICore/RegisterObserver" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnregisterObserver">
+      <soap12:operation soapAction="http://tempuri.org/ICore/UnregisterObserver" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGameData">
+      <soap12:operation soapAction="http://tempuri.org/ICore/GetGameData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="SetSettings">
+      <soap12:operation soapAction="http://tempuri.org/ICore/SetSettings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="AddItemDatabase">
+      <soap12:operation soapAction="http://tempuri.org/ICore/AddItemDatabase" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="ClearItemDatabase">
+      <soap12:operation soapAction="http://tempuri.org/ICore/ClearItemDatabase" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveItem">
+      <soap12:operation soapAction="http://tempuri.org/ICore/RemoveItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GetItems">
+      <soap12:operation soapAction="http://tempuri.org/ICore/GetItems" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="ShuffleCategoryItems">
+      <soap12:operation soapAction="http://tempuri.org/ICore/ShuffleCategoryItems" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="EnableShuffle">
+      <soap12:operation soapAction="http://tempuri.org/ICore/EnableShuffle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="SetCurrentPlayer">
+      <soap12:operation soapAction="http://tempuri.org/ICore/SetCurrentPlayer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="ResetRound">
+      <soap12:operation soapAction="http://tempuri.org/ICore/ResetRound" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="ShowRoundCategories">
+      <soap12:operation soapAction="http://tempuri.org/ICore/ShowRoundCategories" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="SelectRoundCategory">
+      <soap12:operation soapAction="http://tempuri.org/ICore/SelectRoundCategory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="StartRound">
+      <soap12:operation soapAction="http://tempuri.org/ICore/StartRound" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GuessItem">
+      <soap12:operation soapAction="http://tempuri.org/ICore/GuessItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="OverridePlayerScores">
+      <soap12:operation soapAction="http://tempuri.org/ICore/OverridePlayerScores" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="FlipRandomCharacter">
+      <soap12:operation soapAction="http://tempuri.org/ICore/FlipRandomCharacter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="EndRound">
+      <soap12:operation soapAction="http://tempuri.org/ICore/EndRound" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="NextRound">
+      <soap12:operation soapAction="http://tempuri.org/ICore/NextRound" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="FinalRoundToggleNameVisibility">
+      <soap12:operation soapAction="http://tempuri.org/ICore/FinalRoundToggleNameVisibility" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="FinalRoundPlayerGuesses">
+      <soap12:operation soapAction="http://tempuri.org/ICore/FinalRoundPlayerGuesses" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="FinalRoundPlayerGuessesDirect">
+      <soap12:operation soapAction="http://tempuri.org/ICore/FinalRoundPlayerGuessesDirect" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="StartGame">
+      <soap12:operation soapAction="http://tempuri.org/ICore/StartGame" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="EndGame">
+      <soap12:operation soapAction="http://tempuri.org/ICore/EndGame" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <soap12:operation soapAction="http://tempuri.org/ICore/Ping" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayMusic">
+      <soap12:operation soapAction="http://tempuri.org/ICore/PlayMusic" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GetSettings">
+      <soap12:operation soapAction="http://tempuri.org/ICore/GetSettings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OnStatusUpdate">
+      <soap12:operation soapAction="http://tempuri.org/ICore/OnStatusUpdate" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OnSettingsUpdate">
+      <soap12:operation soapAction="http://tempuri.org/ICore/OnSettingsUpdate" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OnItemsUpdate">
+      <soap12:operation soapAction="http://tempuri.org/ICore/OnItemsUpdate" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OnGameSetup">
+      <soap12:operation soapAction="http://tempuri.org/ICore/OnGameSetup" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OnClockUpdate">
+      <soap12:operation soapAction="http://tempuri.org/ICore/OnClockUpdate" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OnPlayMusic">
+      <soap12:operation soapAction="http://tempuri.org/ICore/OnPlayMusic" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OnAudioCue">
+      <soap12:operation soapAction="http://tempuri.org/ICore/OnAudioCue" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Core">
+    <wsdl:port name="NetHttpBinding_ICore" binding="tns:NetHttpBinding_ICore">
+      <soap12:address location="ws://localhost:9999/Nomencontest" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>ws://localhost:9999/Nomencontest</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Dns>localhost</Dns>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

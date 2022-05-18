@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Nomencontest.Base.ViewModels" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Nomencontest.Base.ViewModels" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Nomencontest.Base.Models" />
+  <xs:complexType name="PropertyClass">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="PropertyClass" nillable="true" type="tns:PropertyClass" />
+  <xs:complexType name="ArrayOfPlayerVM">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PlayerVM" nillable="true" type="tns:PlayerVM" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPlayerVM" nillable="true" type="tns:ArrayOfPlayerVM" />
+  <xs:complexType name="PlayerVM">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PropertyClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="HasPlayedRound" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsPlaying" type="xs:boolean" />
+          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Nomencontest.Base.Models" minOccurs="0" name="Model" nillable="true" type="q1:PlayerModel" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Points" type="xs:double" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PlayerVM" nillable="true" type="tns:PlayerVM" />
+</xs:schema>

@@ -1,0 +1,278 @@
+﻿<Window x:Class="Nomencontest.UIClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Nomencontest.UIClient"
+        xmlns:base="clr-namespace:Nomencontest.Base;assembly=Nomencontest.Base"
+        mc:Ignorable="d" x:Name="MainView" 
+        Title="MainWindow" Height="720" Width="1280" BorderThickness="0">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"></BooleanToVisibilityConverter>
+        <base:GreaterThanConverter x:Key="GreaterThanConverter"></base:GreaterThanConverter>
+        <Style TargetType="{x:Type Grid}" x:Key="ItemStyle">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <ImageBrush Stretch="Uniform" ImageSource="Images/mediumbar.png"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="TextBlock.FontFamily" Value="Arial"/>
+            <Setter Property="TextBlock.FontSize" Value="100"/>
+            <Setter Property="TextBlock.HorizontalAlignment" Value="Center"/>
+            <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+            <Setter Property="TextBlock.FontWeight" Value="Bold"/>
+            <Setter Property="TextBlock.Foreground" Value="#c9c9c9"/>
+            <Setter Property="TextBlock.Effect">
+                <Setter.Value>
+                    <DropShadowEffect ShadowDepth="5" BlurRadius="10" Opacity="1" Color="Black" Direction="-45"></DropShadowEffect>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="{x:Type Grid}" x:Key="LargeItemStyle">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <ImageBrush Stretch="Fill" ImageSource="Images/largeguessgraphic.png"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="TextBlock.FontFamily" Value="Arial"/>
+            <Setter Property="TextBlock.FontSize" Value="100"/>
+            <Setter Property="TextBlock.HorizontalAlignment" Value="Center"/>
+            <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+            <Setter Property="TextBlock.FontWeight" Value="Bold"/>
+            <Setter Property="TextBlock.Foreground" Value="#c9c9c9"/>
+            <Setter Property="TextBlock.Effect">
+                <Setter.Value>
+                    <DropShadowEffect ShadowDepth="5" BlurRadius="10" Opacity="1" Color="Black" Direction="-45"></DropShadowEffect>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid Background="Black">
+        <Viewbox StretchDirection="Both" Margin="0">
+            <Grid  Width="1280" Height="720">
+                <Grid.Background>
+                    <ImageBrush ImageSource="Images/bkg_2.png" Stretch="UniformToFill"></ImageBrush>
+                </Grid.Background>
+
+
+                <!-- Category options -->
+                <Grid Visibility="{Binding DataContext.ShowCategories, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BooleanToVisibilityConverter}}" d:IsHidden="true">
+                    <Grid  VerticalAlignment="Top" Width="1280" Height="409" HorizontalAlignment="Stretch"  Style="{StaticResource ItemStyle}">
+                        <Grid Margin="100,50">
+                            <Viewbox StretchDirection="DownOnly">
+                                <TextBlock Text="{Binding DataContext.GameStatus.SelectableCategories[0].Value}" FontSize="130"/>
+                            </Viewbox>
+                        </Grid>
+                    </Grid>
+                    <Grid  VerticalAlignment="Bottom" Width="1280" Height="409" HorizontalAlignment="Stretch"  Style="{StaticResource ItemStyle}">
+                        <Grid Margin="100,50">
+                            <Viewbox StretchDirection="DownOnly">
+                                <TextBlock Text="{Binding DataContext.GameStatus.SelectableCategories[1].Value}" FontSize="130"/>
+                            </Viewbox>
+                        </Grid>
+                    </Grid>
+                </Grid>
+
+
+                <!-- Single category -->
+                <Grid Visibility="{Binding DataContext.ShowSingleCategory, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BooleanToVisibilityConverter}}" d:IsHidden="false">
+                    <Grid  VerticalAlignment="Top" Width="1280" Height="469" HorizontalAlignment="Stretch"  Style="{StaticResource LargeItemStyle}">
+                        <Grid Margin="100,50">
+                            <TextBlock Text="{Binding DataContext.GameStatus.CurrentCategory.Value}" TextAlignment="Center" VerticalAlignment="Center" FontSize="100" TextWrapping="Wrap"/>
+                        </Grid>
+                    </Grid>
+                </Grid>
+
+
+                <!-- Timer -->
+                <Grid Visibility="{Binding DataContext.ShowTimer, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BooleanToVisibilityConverter}}" d:IsHidden="true">
+                 
+                    <Grid Height="200" VerticalAlignment="Bottom" Margin="0,0,0,25" >
+                        <Grid Margin="220,40">
+                            <Viewbox StretchDirection="DownOnly">
+                                <TextBlock  Text="{Binding DataContext.CountdownTimer, UpdateSourceTrigger=PropertyChanged}"
+                            FontWeight="Bold" FontStretch="ExtraExpanded" FontSize="100">
+                                    <TextBlock.Style>
+                                        <Style TargetType="{x:Type TextBlock}">
+                                            <Setter Property="Foreground" Value="White"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding DataContext.CountdownTimer, Converter={StaticResource GreaterThanConverter}, ConverterParameter=10 }" Value="False">
+                                                    <Setter Property="Foreground" Value="Red"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+
+                                </TextBlock>
+                            </Viewbox>
+
+                        </Grid>
+                        <Grid x:Name="Glow">
+                            <Grid.Style>
+                                <Style TargetType="{x:Type Grid}">
+                                    <Setter Property="Visibility" Value="Hidden"></Setter>
+                                    <Setter Property="Effect">
+                                        <Setter.Value>
+                                            <BlurEffect Radius="10"></BlurEffect>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Background" >
+                                        <Setter.Value>
+                                            <ImageBrush ImageSource="Images/countdownbar_glow_yellow.png"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding DataContext.GameStatus.RoundPhase}" Value="IsRunning">
+                                            <Setter Property="Visibility" Value="Visible"></Setter>
+                                            <DataTrigger.EnterActions>
+                                                <BeginStoryboard>
+                                                    <Storyboard Duration="00:00:00.5" RepeatBehavior="Forever" AutoReverse="False">
+                                                        <DoubleAnimation  From="1300" To="0" Storyboard.TargetProperty="Width" BeginTime="0" Duration="00:00:00.2"/>
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </DataTrigger.EnterActions>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding DataContext.CountdownTimer, Converter={StaticResource GreaterThanConverter}, ConverterParameter=10 }" Value="False">
+                                            <Setter Property="Background" >
+                                                <Setter.Value>
+                                                    <ImageBrush ImageSource="Images/countdownbar_glow_red.png"/>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Grid.Style>
+                        </Grid>
+                        <Grid.Style>
+                            <Style TargetType="{x:Type Grid}">
+                                <Setter Property="Background" >
+                                    <Setter.Value>
+                                        <ImageBrush Stretch="Uniform" ImageSource="Images/countdownbar_50.png"/>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding DataContext.CountdownTimer, Converter={StaticResource GreaterThanConverter}, ConverterParameter=40 }" Value="False">
+                                        <Setter Property="Background" >
+                                            <Setter.Value>
+                                                <ImageBrush Stretch="Uniform" ImageSource="Images/countdownbar_40.png"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding DataContext.CountdownTimer, Converter={StaticResource GreaterThanConverter}, ConverterParameter=30 }" Value="False">
+                                        <Setter Property="Background" >
+                                            <Setter.Value>
+                                                <ImageBrush Stretch="Uniform" ImageSource="Images/countdownbar_30.png"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding DataContext.CountdownTimer, Converter={StaticResource GreaterThanConverter}, ConverterParameter=20 }" Value="False">
+                                        <Setter Property="Background" >
+                                            <Setter.Value>
+                                                <ImageBrush Stretch="Uniform" ImageSource="Images/countdownbar_20.png"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding DataContext.CountdownTimer, Converter={StaticResource GreaterThanConverter}, ConverterParameter=10 }" Value="False">
+                                        <Setter Property="Background" >
+                                            <Setter.Value>
+                                                <ImageBrush Stretch="Uniform" ImageSource="Images/countdownbar_10.png"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Grid.Style>
+                    </Grid>
+                </Grid>
+
+                <!--Players -->
+                <Grid Visibility="{Binding DataContext.ShowPlayers, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BooleanToVisibilityConverter}}"
+                      d:IsHidden="false" Margin="0,0,0,25">
+
+                    <Grid Height="200" Width="620" VerticalAlignment="Bottom" HorizontalAlignment="Left" >
+                        <Grid Margin="180,50">
+                            <Viewbox StretchDirection="DownOnly">
+                                <TextBlock Text="{Binding DataContext.GameStatus.Players[0].Points}" FontSize="120"/>
+                            </Viewbox>
+                        </Grid>
+                        <Grid.Style>
+                            <Style TargetType="{x:Type Grid}" BasedOn="{StaticResource ItemStyle}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding DataContext.Player1Active }" Value="False">
+                                        <Setter Property="Opacity" Value="0.5"></Setter>
+                                        <Setter Property="Effect">
+                                            <Setter.Value>
+                                                <BlurEffect Radius="5"></BlurEffect>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Grid.Style>
+                    </Grid>
+                    <Grid Height="200" Width="620" VerticalAlignment="Bottom" HorizontalAlignment="Right" >
+                        <Grid Margin="180,50">
+                            <Viewbox StretchDirection="DownOnly">
+                                <TextBlock Text="{Binding DataContext.GameStatus.Players[1].Points}" FontSize="120"/>
+                            </Viewbox>
+                        </Grid>
+                        <Grid.Style>
+                            <Style TargetType="{x:Type Grid}" BasedOn="{StaticResource ItemStyle}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding DataContext.Player2Active }" Value="False">
+                                        <Setter Property="Opacity" Value="0.5"></Setter>
+                                        <Setter Property="Effect">
+                                            <Setter.Value>
+                                                <BlurEffect Radius="5"></BlurEffect>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Grid.Style>
+                    </Grid>
+                </Grid>
+
+                <!-- Current item box -->
+                <Grid Visibility="{Binding DataContext.ShowCurrentItem, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BooleanToVisibilityConverter}}"
+                      d:IsHidden="false">
+                    <Grid  VerticalAlignment="Top" Width="1280" Height="469" HorizontalAlignment="Stretch"  Style="{StaticResource LargeItemStyle}">
+                        <Grid Margin="100,50">
+                            <TextBlock Text="{Binding DataContext.CurrentNameText}" TextAlignment="Center" VerticalAlignment="Center" FontSize="100" TextWrapping="Wrap"/>
+                        </Grid>
+                    </Grid>
+
+                </Grid>
+
+                <!-- Splash screen -->
+                <Grid d:IsHidden="true" HorizontalAlignment="Stretch">
+                    <Image Source="Images/logo.png" Margin="100,80" VerticalAlignment="Top"/>
+                    <Grid.Style>
+                        <Style TargetType="{x:Type Grid}">
+                            <Setter Property="Visibility" Value="Visible"></Setter>
+                           <Style.Triggers>
+                                <DataTrigger Binding="{Binding DataContext.ShowSplashScreen}" Value="False">
+                                    <DataTrigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard Duration="00:00:00" >
+                                                <DoubleAnimation  From="1" To="0" Storyboard.TargetProperty="Opacity" BeginTime="0" Duration="00:00:00"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </DataTrigger.EnterActions>
+                                    <DataTrigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <Storyboard Duration="00:00:01">
+                                                <DoubleAnimation  From="0" To="1" Storyboard.TargetProperty="Opacity" BeginTime="0" Duration="00:00:01"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </DataTrigger.ExitActions>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Grid.Style>
+                </Grid>
+
+            </Grid>
+        </Viewbox>
+    </Grid>
+</Window>
