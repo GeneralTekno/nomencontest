@@ -42,7 +42,7 @@ namespace Nomencontest.Base
             {
                 return _data.Sections.ContainsSection(MAIN_SETTINGS) && _data[MAIN_SETTINGS].ContainsKey("RoundLength")
                     ? Int32.Parse(_data[MAIN_SETTINGS]["RoundLength"])
-                    : 45;
+                    : 60;
             }
             set
             {
